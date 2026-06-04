@@ -9,7 +9,7 @@
 
 | 구분 | 내용 |
 |---|---|
-| Attributes | +userId : String : 사용자의 고유 아이디 |
+| Attributes | `userId : String` : 사용자의 고유 아이디 |
 |  | `email : String` : 사용자가 입력한 이메일 |
 |  | `nickname : String` : 사용자가 입력한 닉네임 |
 |  | `password : String` : 사용자가 입력한 비밀번호 |
@@ -24,12 +24,13 @@
 | 구분 | 내용 |
 |---|---|
 | Methods | |
-|  | +login(email : String, password : String) : 이메일과 비밀번호를 입력하여 로그인을 수행한다. |
-|  | +logout(userId : String) : 사용자가 로그아웃을 한다. |
-|  | +validateUser(userId : String) : 사용자 인증 정보가 유효한지 확인한다. |
+|  | `login(email : String, password : String)` : 이메일과 비밀번호를 입력하여 로그인을 수행한다. |
+|  | `logout(userId : String)` : 사용자가 로그아웃을 한다. |
+|  | `validateUser(userId : String)` : 사용자 인증 정보가 유효한지 확인한다. |
 
 ## 3) TravelGroup
-
+ 여행 정산 기능의 중심이 되는 클래스이다.
+ 
 | 구분 | 내용 |
 |---|---|
 | Attributes | `groupId : String` : 여행 그룹 고유 ID |
@@ -40,7 +41,6 @@
 | Methods | `createGroup()` : 여행 그룹을 생성한다. |
 |  | `inviteMember()` : 여행 그룹에 멤버를 초대한다. |
 |  | `deleteGroup()` : 여행 그룹을 삭제한다. |
-| Others | 여행 정산 기능의 중심이 되는 클래스이다. 하나의 여행 그룹은 여러 명의 그룹 멤버, 지출 내역, 정산 내역, 초대 정보를 포함한다. |
 
 ## 4) GroupMember
 
