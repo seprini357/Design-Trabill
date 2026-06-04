@@ -5,24 +5,25 @@
 
 # Class diagram
 ## 1) User
+사용자의 기본 정보를 관리하는 클래스이다.
 
 | 구분 | 내용 |
 |---|---|
-|  | 사용자의 기본 정보를 관리하는 클래스이다. |
 | Attributes | +userId : String : 사용자의 고유 아이디 |
-|  | +email : String : 사용자가 입력한 이메일 |
-|  | +nickname : String : 사용자가 입력한 닉네임 |
-|  | +password : String : 사용자가 입력한 비밀번호 |
-|  | +accountNumber : String : 사용자가 입력한 계좌번호 |
+|  | `email : String` : 사용자가 입력한 이메일 |
+|  | `nickname : String` : 사용자가 입력한 닉네임 |
+|  | `password : String` : 사용자가 입력한 비밀번호 |
+|  | `accountNumber : String` : 사용자가 입력한 계좌번호 |
 | Methods | signUp() : 사용자의 정보로 회원가입을 한다. |
 |  | updateProfile() : 사용자 정보를 수정한다. |
 |  | deleteAccount() : 사용자 계정을 삭제한다. |
 
 ## 2) AuthService
+로그인, 로그아웃, 사용자 인증을 담당하는 서비스 클래스이다. 
 
 | 구분 | 내용 |
 |---|---|
-| Methods | + 로그인, 로그아웃, 사용자 인증을 담당하는 서비스 클래스이다. `User` 클래스와 의존 관계를 가지며, 사용자의 인증 정보를 검증한다. |
+| Methods | |
 |  | +login(email : String, password : String) : 이메일과 비밀번호를 입력하여 로그인을 수행한다. |
 |  | +logout(userId : String) : 사용자가 로그아웃을 한다. |
 |  | +validateUser(userId : String) : 사용자 인증 정보가 유효한지 확인한다. |
