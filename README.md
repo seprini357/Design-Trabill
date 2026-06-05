@@ -3,8 +3,7 @@
  본 문서는 Analysis 단계에서 정의된 요구사항을 기반으로 Design 단계의 문서이다. Class Diagram, Sequence Diagram, State Machine Diagram을 통해 각 Diagram과 시스템의 구조와 동작과정에 대해 설명한다. Implementation requirements를 기술하여 본 시스템을 구현에 관여하는 모든 요소를 구체적으로 디자인하는 내용을 다룬다. 
 
 # Class diagram
-<img width="870" height="577" alt="image" src="https://github.com/user-attachments/assets/8c4e6606-a197-4134-88ee-5b42bc426ddd" />
-
+![image](https://github.com/user-attachments/assets/8c4e6606-a197-4134-88ee-5b42bc426ddd)
 
 ## 1) User
 사용자의 기본 정보를 관리하는 클래스이다.
@@ -45,6 +44,7 @@
 |  | `deleteGroup()` : 여행 그룹을 삭제한다. |
 
 ## 4) GroupMember
+특정 여행 그룹에 참여한 사용자를 나타내는 클래스이다. 하나의 사용자는 여러 여행 그룹에 참여할 수 있으므로 `User`와 분리하여 관리한다.
 
 | 구분 | 내용 |
 |---|---|
@@ -54,10 +54,10 @@
 |  | `nickname : String` : 그룹 내에서 사용하는 닉네임 |
 |  | `accountNumber : String` : 정산에 사용할 계좌번호 |
 | Methods | `joinGroup()` : 여행 그룹에 참여한다. |
-|  | `leaveGroup()` : 여행 그룹에서 탈퇴한다. |
-| Others | 특정 여행 그룹에 참여한 사용자를 나타내는 클래스이다. 하나의 사용자는 여러 여행 그룹에 참여할 수 있으므로 `User`와 분리하여 관리한다. |
+|  | `leaveGroup()` : 여행 그룹 빠진다. |
 
 ## 5) Expense
+여행 중 발생한 지출 정보를 관리하는 클래스이다. 지출 내역은 특정 여행 그룹에 속하며, 결제자는 `GroupMember`와 연결된다.
 
 | 구분 | 내용 |
 |---|---|
@@ -65,15 +65,15 @@
 |  | `groupId : String` : 지출이 발생한 여행 그룹 ID |
 |  | `payerId : String` : 결제를 수행한 그룹 멤버 ID |
 |  | `amount : Long` : 지출 금액 |
-|  | `memo : String` : 지출 내역에 대한 메모 |
+|  | `memo : String` : 지출 내역에 대한 메모를 작성한다. |
 |  | `createdAt : Long` : 지출 내역 생성 시간 |
 | Methods | `addExpense()` : 지출 내역을 추가한다. |
 |  | `editExpense()` : 지출 내역을 수정한다. |
 |  | `deleteExpense()` : 지출 내역을 삭제한다. |
 |  | `viewExpense()` : 지출 내역을 조회한다. |
-| Others | 여행 중 발생한 지출 정보를 관리하는 클래스이다. 지출 내역은 특정 여행 그룹에 속하며, 결제자는 `GroupMember`와 연결된다. |
 
 ## 6) ReceiptImage
+특정 지출 내역에 첨부되는 영수증 이미지를 관리하는 클래스이다. `Expense`에 종속되는 객체이다.
 
 | 구분 | 내용 |
 |---|---|
@@ -82,9 +82,9 @@
 |  | `imageUrl : String` : 영수증 이미지 저장 경로 |
 | Methods | `uploadImage()` : 영수증 이미지를 업로드한다. |
 |  | `deleteImage()` : 영수증 이미지를 삭제한다. |
-| Others | 특정 지출 내역에 첨부되는 영수증 이미지를 관리하는 클래스이다. `Expense`에 종속되는 객체이다. |
 
 ## 7) Settlement
+여행 그룹의 전체 지출을 기준으로 정산 결과를 생성하는 클래스이다. 하나의 정산은 여러 개의 정산 상세 내역을 가진다.
 
 | 구분 | 내용 |
 |---|---|
@@ -95,9 +95,10 @@
 | Methods | `requestSettlement()` : 정산을 요청한다. |
 |  | `calculateSettlement()` : 지출 내역을 바탕으로 정산 금액을 계산한다. |
 |  | `viewSettlementResult()` : 정산 결과를 조회한다. |
-| Others | 여행 그룹의 전체 지출을 기준으로 정산 결과를 생성하는 클래스이다. 하나의 정산은 여러 개의 정산 상세 내역을 가진다. |
+
 
 ## 8) SettlementDetail
+정산 결과의 세부 내역을 관리하는 클래스이다. 누가 누구에게 얼마를 보내야 하는지와 송금 및 수금 상태를 저장한다.
 
 | 구분 | 내용 |
 |---|---|
@@ -111,9 +112,9 @@
 | Methods | `updateSendStatus()` : 송금 상태를 변경한다. |
 |  | `updateReceiveStatus()` : 수금 상태를 변경한다. |
 |  | `completeSettlement()` : 정산 상세 내역을 완료 처리한다. |
-| Others | 정산 결과의 세부 내역을 관리하는 클래스이다. 누가 누구에게 얼마를 보내야 하는지와 송금 및 수금 상태를 저장한다. |
 
 ## 9) Invitation
+여행 그룹에 사용자를 초대하기 위한 정보를 관리하는 클래스이다. 초대 상태는 `InvitationStatus` 열거형으로 관리한다.
 
 | 구분 | 내용 |
 |---|---|
@@ -121,13 +122,14 @@
 |  | `groupId : String` : 초대가 발생한 여행 그룹 ID |
 |  | `receiverEmail : String` : 초대받는 사용자의 이메일 |
 |  | `inviteCode : String` : 그룹 초대 코드 |
-|  | `status : InvitationStatus` : 초대 상태 |
-| Methods | `sendInvitation()` : 초대를 전송한다. |
-|  | `acceptInvitation()` : 초대를 수락한다. |
-|  | `rejectInvitation()` : 초대를 거절한다. |
-| Others | 여행 그룹에 사용자를 초대하기 위한 정보를 관리하는 클래스이다. 초대 상태는 `InvitationStatus` 열거형으로 관리한다. |
+|  | `status : InvitationStatus` : 그룹 초대 상태 |
+| Methods | `sendInvitation()` : 그룹 초대를 전송한다. |
+|  | `acceptInvitation()` : 그룹 초대를 수락한다. |
+|  | `rejectInvitation()` : 그룹 초대를 거절한다. |
+
 
 ## 10) Notification
+사용자에게 초대, 정산 요청, 정산 완료 등의 이벤트를 전달하는 클래스이다. 
 
 | 구분 | 내용 |
 |---|---|
@@ -138,24 +140,26 @@
 |  | `createdAt : Long` : 알림 생성 시간 |
 | Methods | `sendNotification()` : 사용자에게 알림을 전송한다. |
 |  | `viewNotification()` : 알림 내용을 조회한다. |
-| Others | 사용자에게 초대, 정산 요청, 정산 완료 등의 이벤트를 전달하는 클래스이다. 알림 종류는 `NotificationType` 열거형으로 관리한다. |
+
 
 ## 11) InvitationStatus
+초대 상태를 제한된 값으로 관리하기 위한 열거형 클래스이다.
 
 | 구분 | 내용 |
 |---|---|
 | Attributes | `PENDING` : 초대 대기 상태 |
 |  | `ACCEPTED` : 초대 수락 상태 |
 |  | `REJECTED` : 초대 거절 상태 |
-| Methods | 없음 |
-| Others | 초대 상태를 제한된 값으로 관리하기 위한 열거형 클래스이다. |
+| Methods |  |
+
 
 ## 12) NotificationType
+알림의 종류를 제한된 값으로 관리하기 위한 열거형 클래스이다.
 
 | 구분 | 내용 |
 |---|---|
 | Attributes | `INVITATION` : 그룹 초대 알림 |
 |  | `SETTLEMENT_REQUEST` : 정산 요청 알림 |
 |  | `SETTLEMENT_COMPLETE` : 정산 완료 알림 |
-| Methods | 없음 |
-| Others | 알림의 종류를 제한된 값으로 관리하기 위한 열거형 클래스이다. |
+| Methods |  |
+
