@@ -24,8 +24,7 @@
 
 | 구분 | 내용 |
 |---|---|
-| Methods | |
-|  | `login(email : String, password : String)` : 이메일과 비밀번호를 입력하여 로그인을 수행한다. |
+| Methods | `login(email : String, password : String)` : 이메일과 비밀번호를 입력하여 로그인을 수행한다. |
 |  | `logout(userId : String)` : 사용자가 로그아웃을 한다. |
 |  | `validateUser(userId : String)` : 사용자 인증 정보가 유효한지 확인한다. |
 
@@ -163,3 +162,6 @@
 |  | `SETTLEMENT_COMPLETE` : 정산 완료 알림 |
 | Methods |  |
 
+# Sequence diagram
+## Sign up 
+![image](https://github.com/user-attachments/assets/e62e735f-f9bb-4a7c-99d1-042f335f912e)
