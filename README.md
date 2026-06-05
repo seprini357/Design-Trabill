@@ -1,9 +1,11 @@
 # 1. Introduction
  최근 여행 인구 증가로 인해 교통비, 숙박비, 식비 등 다양한 여행 경비를 여러 사람이 함께 부담하는 경우가 많아지고 있다. 그러나 지출 항목마다 참여 인원이 다르고 결제 방식이 달라 비용 정산 과정이 복잡해지며 수기로 관리할 경우 정산 누락이나 계산 오류가 발생할 수 있다. 이를 효율적으로 해결하기 위해 여행 중 발생하는 지출 내역을 기록하고 자동으로 정산 결과를 제공하는 여행 경비 관리 어플리케이션 Trabill을 개발한다.
- 본 문서는 Analysis 단계에서 정의된 요구사항을 기반으로 Design 단계의 문서이다. Class Diagram, Sequence Diagram, State Mach
- ine Diagram을 통해 각 Diagram과 시스템의 구조와 동작과정에 대해 설명한다. Implementation requirements를 기술하여 본 시스템을 구현에 관여하는 모든 요소를 구체적으로 디자인하는 내용을 다룬다. 
+ 본 문서는 Analysis 단계에서 정의된 요구사항을 기반으로 Design 단계의 문서이다. Class Diagram, Sequence Diagram, State Machine Diagram을 통해 각 Diagram과 시스템의 구조와 동작과정에 대해 설명한다. Implementation requirements를 기술하여 본 시스템을 구현에 관여하는 모든 요소를 구체적으로 디자인하는 내용을 다룬다. 
 
 # Class diagram
+<img width="870" height="577" alt="image" src="https://github.com/user-attachments/assets/8c4e6606-a197-4134-88ee-5b42bc426ddd" />
+
+
 ## 1) User
 사용자의 기본 정보를 관리하는 클래스이다.
 
